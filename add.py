@@ -12,14 +12,17 @@ def mike():
 @app.route('/create/', methods = ('GET', 'POST'))
 def create():
     if request.method == 'POST':
-        name = request.form['name']
-        surname = request.form['surname']
-        password = request.form['password']
+        title = request.form['title']
+        description = request.form['description']
+        username = request.form['username']
+        email = request.form['email']
 
         Post.create(
-            name = name,
-            surname = surname,
-            password = password
+            title = title,
+            description = description,
+            username = username,
+            email = email,
+
         )
         return redirect('/')
     return render_template('create.html')
